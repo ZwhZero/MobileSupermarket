@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AdminMapper">
+    <!-- 解决表名与字段不匹配 -->
+    <!-- <resultMap type="Admin" id="adminResultMap">
+        <id property="aId" column="aId" />
+        <result property="aName" column="aName"/>
+        <result property="password" column="password"/>
+    </resultMap> -->
+    
+    <!-- 登录用 -->
+    <select id="selectByNameAndPwd" parameterType="Admin" resultType="Admin">
+        select * from t_admin where aName = #{aName} and aPassword = #{aPassword}
+    </select>
+    <!-- 查找全部 -->
+    <select id="selectAll"  resultType="Admin">
+        select * from t_admin
+    </select>
+    <!-- 查找(id) -->
+    <select id="selectById"  parameterType="int"  resultType="Admin">
+        select * from t_admin where aId=#{aId}
+    </select>
+    <!-- 更新（id） -->
+    <update id="updateAdmin"  parameterType="Admin">
+        update t_admin set aName=#{aName},aPassword=#{aPassword} where aId=#{aId}
+    </update>
+    <!-- 删除（id） -->
+    <delete id="deleteAdmin"  parameterType="int">
+        delete from t_admin where aId=#{aId}
+    </delete>
+    <!-- 增加 -->
+    <insert id="addAdmin"  parameterType="Admin">
+        insert into t_admin(aId,aName,aPassword) values (#{aId},#{aName},#{aPassword})
+    </insert>
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.OrderMapper">
+
+	<!-- 添加-初始化订单（获取返回的orderId） -->
+	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="order.orderId" keyColumn="orderId">
+		insert into 
+		t_order(orderId,uId,phone,address,oNumber,oMoney,createTime,remark,orderState)
+		values(#{order.orderId},#{order.uId},#{order.phone},#{order.address},#{order.oNumber},#{order.oMoney},#{order.createTime},#{order.remark},#{order.orderState})
+	</insert>
+	
+	<!-- 查找订单（orderId），返回Order对象 -->
+	<select id="findOrderByoId" resultType="Order">
+		select * from t_order where orderId = #{orderId}
+	</select>
+	
+	<!-- 按需求更新Order信息(Order对象) -->
+	<update id="updateOrderSelective" parameterType="Order">
+		update t_order 
+		<set>
+			<if test="uId != 0">
+				uId = #{uId},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+			<if test="address != null">
+				address = #{address},
+			</if>
+			<if test="oNumber != null">
+				oNumber = #{oNumber},
+			</if>
+			<if test="oMoney != null">
+				oMoney = #{oMoney},
+			</if>
+			<!-- <if test="createTime != null">
+				createTime = #{createTime},
+			</if> -->
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
+			<if test="orderState != 0">
+				orderState = #{orderState},
+			</if>
+		</set>
+		where orderId = #{orderId}
+	</update>
+	
+	
+	<update id="updateOrderState" parameterType="Order">
+		update t_order set 
+		orderState = #{orderState} 
+		where orderId = #{orderId}
+	</update>
+	
+	<!-- 查询用户历史订单(uId) -->
+	<select id="orderList" resultType="Order">
+		select * from t_order where uId = ${uId} order by orderId desc
+	</select>
+	
+	<!-- 查询全部历史订单 -->
+	<select id="findAllOrder" resultType="Order">
+		select * from t_order order by orderId desc
+	</select>
+	
+	<!-- 删除指定订单(orderId) -->
+	<delete id="deleteOrderByoId">
+		delete from t_order where orderId = #{orderId}
+	</delete>
+	
+</mapper>

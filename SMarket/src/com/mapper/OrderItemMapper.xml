@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.OrderItemMapper">
+
+	<!-- 添加-初始化订单（获取返回的orderId） -->
+	<insert id="addOrderItem" parameterType="OrderItem">
+		insert into 
+		t_orderitem(itemId,uId,gId,gName,gPrice,gCount,orderId,addTime) 
+		values(#{itemId},#{uId},#{gId},#{gName},#{gPrice},#{gCount},#{orderId},#{addTime})
+	</insert>
+	<!-- 查找指定orderId的全部条目信息 -->
+	<select id="findItemsByoId" resultType="OrderItem">
+		select * from t_orderitem where orderId = ${orderId}
+	</select>
+</mapper>

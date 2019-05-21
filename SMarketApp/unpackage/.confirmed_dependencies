@@ -1,0 +1,110 @@
+{
+  "login.html": {
+    "href": "login.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "js/jquery-1.9.1.min.js",
+      "js/login.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "buildOrder.html": {
+    "href": "buildOrder.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "css/buildOrder.css",
+      "js/jquery-1.9.1.min.js",
+      "js/buildOrder.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "index.html",
+      "login.html"
+    ],
+    "priority": 0
+  },
+  "shoppingCart.html": {
+    "href": "shoppingCart.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "css/shoppingCart.css",
+      "js/jquery-1.9.1.min.js",
+      "js/shoppingCart.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "index.html",
+      "buildOrder.html",
+      "login.html"
+    ],
+    "priority": 0
+  },
+  "goodsInfo.html": {
+    "href": "goodsInfo.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "css/goodsInfo.css",
+      "js/jquery-1.9.1.min.js",
+      "js/goodsInfo.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "login.html",
+      "index.html",
+      "shoppingCart.html"
+    ],
+    "priority": 0
+  },
+  "kindGoods.html": {
+    "href": "kindGoods.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "css/kindGoods.css",
+      "js/jquery-1.9.1.min.js",
+      "js/kindGoods.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "goodsInfo.html",
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "orderList.html": {
+    "href": "orderList.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "css/orderList.css",
+      "js/jquery-1.9.1.min.js",
+      "js/orderList.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "login.html",
+      "index.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "css/jquery.mobile-1.4.5.min.css",
+      "js/jquery-1.9.1.min.js",
+      "css/index.css",
+      "js/index.js",
+      "js/jquery.mobile-1.4.5.min.js"
+    ],
+    "refer": [
+      "goodsInfo.html",
+      "kindGoods.html",
+      "orderList.html",
+      "shoppingCart.html",
+      "login.html"
+    ],
+    "priority": 0
+  }
+}

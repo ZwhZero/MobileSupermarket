@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CategoryMapper">
+	<resultMap id="CategoryMap" type="Category">
+		<id property="cId" column="cId"/>
+        <result property="cName" column="cName"/>
+        <result property="level" column="level"/>
+        <result property="pid" column="pid"/>
+	</resultMap>
+	<!-- 查询所有商品类别信息(返回list) -->
+	<select id="selectAllCategory" resultMap="CategoryMap">
+		select * from t_category
+	</select>
+	<!-- 查询指定父类别id的商品类别信息(返回list) -->
+	<select id="selectCategoryByPid" resultMap="CategoryMap">
+		select * from t_category where pid = #{pid}
+	</select>
+	
+	<!-- 更新类别（id） -->
+    <update id="updateCategory"  parameterType="Category">
+        update t_category set 
+        cName = #{cName},
+        level = #{level},
+        pid = #{pid}
+        where cId = #{cId}
+    </update>
+    
+    <!-- 删除类别（id） -->
+	<delete id="deleteCategory" parameterType="int">
+		delete from t_category where cId = #{cId}
+	</delete>
+	
+	<!-- 添加类别 -->
+	<insert id="addCategory"  parameterType="Category">
+        insert into t_category(cId,cName,level,pid) 
+        values 
+        (#{cId},#{cName},#{level},#{pid})
+    </insert>
+	
+</mapper>

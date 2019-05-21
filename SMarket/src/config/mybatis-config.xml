@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="User" type="com.model.User"/>
+        <typeAlias alias="Admin" type="com.model.Admin"/>
+        <typeAlias alias="Goods" type="com.model.Goods"/>
+        <typeAlias alias="ShoppingCart" type="com.model.ShoppingCart"/>
+        <typeAlias alias="Category" type="com.model.Category"/>
+        <typeAlias alias="Order" type="com.model.Order"/>
+        <typeAlias alias="OrderItem" type="com.model.OrderItem"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/mapper/UserMapper.xml" />
+        <mapper resource="com/mapper/AdminMapper.xml" />
+        <mapper resource="com/mapper/GoodsMapper.xml" />
+        <mapper resource="com/mapper/ShoppingCartMapper.xml" />
+        <mapper resource="com/mapper/CategoryMapper.xml" />
+        <mapper resource="com/mapper/OrderMapper.xml" />
+        <mapper resource="com/mapper/OrderItemMapper.xml" />
+    </mappers>
+</configuration>

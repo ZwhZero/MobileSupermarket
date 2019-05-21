@@ -1,0 +1,134 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*顶部样式*/
+#header{
+	height: 70px;
+	width: 100%;
+	background-color:aliceblue;
+	text-align:left;
+	position: relative;
+}
+#header .title{
+	font-family: "宋体";
+	color: #000000;
+	font-size: 30px;
+	height: 40px;
+	width: 30%;
+	position: relative;
+	top: 30%;
+	left: 5%;
+}
+.welcome{
+	width: 200px;
+	height: 30px;
+	text-align: left;
+	position: relative;
+	font-size: 15px;
+	bottom: 5%;
+	left: 82%;
+	top: 15%;
+}
+
+/*登录块样式*/
+#log-main{
+	height: 720px;
+	width: 100%;
+	background-image: url(../img/marketBg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;/*使背景铺满*/
+	background-position: center center;
+	position: relative;
+}
+#log-main .log-box{
+	height: 380px;
+	width: 310px;
+	position: absolute;
+	background-color: aliceblue;
+	top: 20%;
+	right: 12%;
+}
+.log-box .log-top{
+	width: 80%;
+	border-bottom: 1px solid #DEB887;
+	margin-bottom: 50px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.log-top p{
+	display: inline-block;
+	font-size: 26px;
+	margin-top: 30px;
+	width: 80%;
+}
+.log-box .log-in{
+	width: 80%;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+.log-in img{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}
+.log-in input{
+	width: 100%;
+	height: 30px;
+	text-indent: 3em;/*文本首行缩进*/
+}
+.log-box .log-sub{
+	width: 80%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.log-sub input{
+	width: 100%;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:darksalmon;
+	color: #ffffff;
+	font-family: "宋体";
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	border: none;
+}
+
+/*底部样式*/
+#footer{
+	width: 100%;
+	height: 120px;
+	background-color:gray;
+	position: relative;
+}
+#footer .content{
+	font-family: "宋体";
+	font-size: 15px;
+	color: #FFFFFF;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	height: 60px;
+	width: 40%;
+	text-align: center;
+}
+#footer .content p{
+	height: 24px;
+	width: 100%;
+}
+#footer .content .ex{
+	width: 100%;
+	height: 24px;
+	position: relative;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<!-- meta使用viewport以确保页面可自由缩放 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 引入 jQuery Mobile 样式 -->
+    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    	<!-- 引入 jQuery 库 -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page" id="mainPage">
+			<div data-role="header">
+				<a href="#mainPage" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<p>主页</p>
+			
+			</div>
+		
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn ui-icon-user ui-btn-icon-top">我的</a></li>
+					<li><a href="#" class="ui-btn ui-icon-shop ui-btn-icon-top">购物车</a></li>
+					<li><a href="#" class="ui-btn ui-icon-grid ui-btn-icon-top">分类查看</a></li>
+				</ul>
+				</div>
+				<!--<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-top">我的</a>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-shop ui-btn-icon-top">购物车</a>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-grid ui-btn-icon-top">分类</a>-->
+			</div>
+  		</div>
+		<div data-role="page" id="searchPage">
+			<div data-role="header">
+				<a href="#mainPage" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<h2>搜索页</h2>
+				<div data-role="content">
+					<form action="" method="post" name="sForm">
+						<div data-role="fieldcontain">
+							<!--<label for="search">搜索：</label>-->
+							<input type="search" name="search" id="search" placeholder="输入搜索内容...">
+							<input type="submit" name="submit" value="搜索" data-theme="b"/>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#myPage" class="ui-btn ui-icon-user ui-btn-icon-top">我的</a></li>
+					<li><a href="#shopPage" class="ui-btn ui-icon-shop ui-btn-icon-top">购物车</a></li>
+					<li><a href="#kindPage" class="ui-btn ui-icon-grid ui-btn-icon-top">分类查看</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

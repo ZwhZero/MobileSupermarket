@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ShoppingCartMapper">
+	<!-- 指定返回类型BaseResultMap -->
+	<resultMap id="BaseResultMap" type="ShoppingCart">
+		<!-- <constructor>
+			<idArg column="cartId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="uId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="gId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="gCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+		</constructor>	 -->
+		<id property="cartId" column="cartId"/>
+        <result property="uId" column="uId"/>
+        <result property="gId" column="gId"/>
+        <result property="gCount" column="gCount"/>
+        <result property="createTime" column="createTime"/>
+	</resultMap>
+	
+	<!-- 添加至购物车 -->
+	<insert id="addToCart" parameterType="ShoppingCart">
+		insert into t_shoppingcart(cartId,uId,gId,gCount,createTime)
+			values
+			(#{cartId},#{uId},#{gId},#{gCount},#{createTime})	
+	</insert>
+	
+	<!-- 查询(gid,uid) -->
+	<select id="selectCartByuIdAndgId" resultType="ShoppingCart">
+		select * from t_shoppingcart where uId = #{uId} and gId = #{gId}
+	</select>
+	
+	<!-- 更新购物车(按cartId,有新值的) -->
+	<update id="updateCartSelective" parameterType="ShoppingCart">
+		update t_shoppingcart 
+		<set>
+			<if test="uId != 0">
+				uId = #{uId},
+			</if>
+			<if test="gId != 0">
+				gId = #{gId},
+			</if>
+			<if test="gCount != 0">
+				gCount = #{gCount},
+			</if>
+			<!-- <if test="createTime != null">
+				createTime = #{createTime},
+			</if> -->
+		</set>
+		where cartId = #{cartId}
+	</update>
+	<!-- 更新购物车(按cartId,all) -->
+	
+	
+	<!-- 查询指定用户所有购物车项(uId,返回List) -->
+	<select id="selectCartByuId" parameterType="int" resultMap="BaseResultMap">
+		select * from t_shoppingcart where uId=#{uId}
+	</select>
+	
+	<!-- 删除购物车指定项(cartId) -->
+	<delete id="deleteCartByCartId" parameterType="int">
+		delete from t_shoppingcart where cartId = #{cartId}
+	</delete>
+	
+	<!-- 清空用户购物车(uId) -->
+	<delete id="deleteCartByuId" parameterType="int">
+		delete from t_shoppingcart where uId = #{uId}
+	</delete>
+	
+	
+	
+</mapper>

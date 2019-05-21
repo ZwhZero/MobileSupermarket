@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户登录</title>
+		<!-- meta使用viewport以确保页面可自由缩放 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 引入 jQuery Mobile 样式 -->
+    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    	<!-- 引入 jQuery 库 -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		
+		<script type="text/javascript">
+			function userLogin(){
+//				获取用户名和密码
+				var $uName = $("#uName").val();
+				var $uPassword = $("#uPassword").val();
+				if($uName=="" || $uPassword==""){
+					alert("用户名和密码不能为空");
+				}else {
+					$ajax({
+						url:"userLogin",
+						type:"post",
+						data:"uName=" + $uName,"uPassword" + $uPassword,
+						success:function (result,testStatus) {
+							console.log(result);
+							if(result == "true"){
+								alert("登录成功");
+								window.location.href = "index.html";
+							} else{
+								alert("用户名或密码错误");
+							}
+						},
+						error:function(xhr,errorMessage,e){
+							alert("请求失败，系统错误");
+						}
+					});
+				}
+			}
+//				if(n=="" || y==""){
+//					alert("用户名或密码不能为空")
+//				}else  if (x=="1001"||y=="0001"){<!--与js设置的用户名和密码进行匹配  -->
+//					<!--密码匹配后跳转-->
+//					window.location.href="XXX.html";
+//					<!--匹配后进行跳转的页面，你自行编写，注意相对路径的书写 -->
+//				}else {
+//					alert("用户名或密码错误");
+//				}
+
+		</script>
+	</head>
+	<body>
+		<!--登录页面-->
+		<div data-role="page" id="loginPage">
+			<div data-role="header">
+				<h1>请登录</h1>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<form method="post" action="" name="loginForm">
+					<!--"ui-field-contain"让标签和表单元素看起来更适应宽屏-->
+					<div class="ui-field-contain">
+						<label for="name">用户名:</label>
+						<input type="text" name="name" id="uName">
+ 						<br/>
+						<label for="password">密码:</label>
+						<input type="password" name="password" id="uPassword">
+						<div style="margin-top: 20%;">
+							<button onclick="userLogin()" data-role="button" data-transition="flow">登录</button>
+							<a href="#registerPage" data-role="button" data-transition="flip">注册</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<p>Zero Supermarket @William</p>
+			</div>
+		</div>
+		
+		<!--注册页面-->
+		<div data-role="page" id="registerPage" data-theme="b">
+			<div data-role="header">
+				<h1>欢迎注册</h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<form method="post" action="" name="registerForm">
+					<div class="ui-field-contain">
+						<label for="uName">用户名:</label>
+						<input type="text" name="uName" id="uName">
+						<br/>
+						<label for="uPassword">密码:</label>
+						<input type="text" name="uPassword" id="uPassword">
+						<!--<br/>
+						<label for="rePassword">重复密码:</label>
+						<input type="password" name="rePassword" id="rePassword">-->
+						<br />
+						<label for="age">年龄:</label>
+						<input type="text" name="age" id="age">
+						
+						<br />
+						<fieldset data-role="controlgroup">
+							<legend>性别：</legend>
+							<label for="male">男</label>
+							<input type="radio" name="gender" id="male" value="男">
+							<label for="female">女</label>
+							<input type="radio" name="gender" id="female" value="女"> 
+						</fieldset>
+						<!--<label for="sex">性别:</label>
+						<input type="text" name="sex" id="sex">-->
+						
+						<br />
+						<label for="phone">手机:</label>
+						<input type="text" name="phone" id="phone">
+						<br />
+						<label for="address">地址:</label>
+						<input type="text" name="address" id="address">
+						<br />
+						<label for="email">邮箱:</label>
+						<input type="text" name="email" id="email">
+						
+						<div style="margin-top: 20%;">
+							<a href="#" data-role="button" data-transition="flow" data-direction="reverse">确认注册</a>
+							<a href="#loginPage" data-role="button" data-transition="flip" data-direction="reverse">直接登录</a>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<p>Zero Supermarket @William</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<!-- meta使用viewport以确保页面可自由缩放 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 引入 jQuery Mobile 样式 -->
+    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    	<!-- 引入 jQuery 库 -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/global.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+		<!--主页-->
+		<div data-role="page" id="mainPage">
+			<!--顶部固定栏-->
+			<div data-role="header" data-position="fixed">
+				<button onclick="location.replace(location);" class="ui-btn ui-corner-all ui-shadow ui-icon-refresh ui-btn-icon-left">刷新</button>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+			<!--中间主体内容-->
+			<div data-role="main" class="ui-content">
+				<h3>欢迎来到Zero网上超市</h3>
+				<br />
+				<p>——本店物美价廉，请您尽情挑选，随意选购</p>
+				<br />
+				<hr />
+				<div id="container">
+					<!--ajax+js动态填充数据-->
+					
+				</div>
+			</div>
+			<!--底部固定栏-->
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#myPage" class="ui-btn ui-icon-user ui-btn-icon-top">我的</a></li>
+					<li><a href="javascript:void(0);" class="ui-btn ui-icon-shop ui-btn-icon-top" id="toMyCart">购物车</a></li>
+					<li><a href="#kindPage" class="ui-btn ui-icon-grid ui-btn-icon-top">分类查看</a></li>
+				</ul>
+				</div>
+			</div>
+  		</div>
+  		
+  		<!--搜索页-->
+		<div data-role="page" id="searchPage">
+			<div data-role="header" data-position="fixed">
+				<a href="#mainPage" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<h2>搜索页</h2>
+				<div data-role="content" id="searchItem">
+					<!--<form action="" method="post" name="sForm">-->
+					<div class="searchField" data-role="fieldcontain">
+						<!--<label for="search">搜索：</label>-->
+						<input type="search" name="search" id="searchInfo" placeholder="请输入商品名相关信息..." />
+						<input type="button" name="submit" value="搜索" id="searchButton" data-theme="b" />
+					</div>
+					<!--</form>-->
+				</div>
+				<div id="searchResult">
+					<!-- Ajax动态加载搜索到的商品信息 -->
+					
+					
+				</div>
+			</div>
+		
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#myPage" class="ui-btn ui-icon-user ui-btn-icon-top">我的</a></li>
+					<li><a href="javascript:void(0);" class="ui-btn ui-icon-shop ui-btn-icon-top" id="searchToCart">购物车</a></li>
+					<li><a href="#kindPage" class="ui-btn ui-icon-grid ui-btn-icon-top">分类查看</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!--个人信息页面-->
+		<div data-role="page" id="myPage">
+			<div data-role="header" data-position="fixed">
+				<a href="#mainPage" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<h3>用户信息:</h3>
+				 <table class="ui-responsive" id="myTable" border="0" width="100%" cellspacing="0">
+					<tr height="26px">
+						<th width="30%">用户名</th>
+						<td><span id="tbuname">null</span></td>
+					</tr>
+					<tr>
+						<th>性别</th>
+						<td><span id="tbsex">null</span></td>
+					</tr>
+					<tr>
+						<th>年龄</th>
+						<td><span id="tbage">null</span></td>
+					</tr>
+					<tr>
+						<th>手机</th>
+						<td><span id="tbphone">null</span></td>
+					</tr>
+					<tr>
+						<th>地址</th>
+						<td><span id="tbaddress">null</span></td>
+					</tr>
+					<tr>
+						<th>邮箱</th>
+						<td><span id="tbemail">null</span></td>
+					</tr>
+				</table>
+				<div id="toMyOtherPage" data-theme="b">
+					<a href="javascript:void(0);" class="ui-btn" id="myOrderList">历史订单</a>
+					<a href="#editPwdPage" class="ui-btn" data-transition="slide">修改密码</a>
+				</div>
+				<div id="toLoginOut" data-theme="b">
+					<a href="javascript:void(0);" class="ui-btn" id="loginOrSign">前往登录/注册</a>
+					<a href="javascript:void(0);" class="ui-btn" id="loginOut">退出登录</a>
+				</div>
+			</div>
+		
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#myPage" class="ui-btn ui-icon-user ui-btn-icon-top ui-btn-active">我的</a></li>
+					<li><a href="javascript:void(0);" class="ui-btn ui-icon-shop ui-btn-icon-top" id="myPageToCart">购物车</a></li>
+					<li><a href="#kindPage" class="ui-btn ui-icon-grid ui-btn-icon-top">分类查看</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!--修改密码页面-->
+		<div data-role="page" id="editPwdPage">
+			<div data-role="header">
+				<h1>修改密码</h1>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<!--"ui-field-contain"让标签和表单元素看起来更适应宽屏-->
+				<div class="ui-field-contain">
+					<label for="myOldPwd">原密码:</label>
+					<input type="password" name="myOldPwd" id="eppOldPwd" placeholder="请输入您当前密码">
+					<br/>
+					<label for="myNewPwd">新密码:</label>
+					<input type="password" name="myNewPwd" id="eppNewPwd" placeholder="请输入您的新密码">
+					<br/>
+					<label for="repeatPwd">确认新密码:</label>
+					<input type="password" name="repeatPwd" id="repeatPwd" placeholder="请再次输入您的新密码">
+					<span id="eppPwdCheck" style="color: #05ab39;"></span>
+					<div style="margin-top: 20%;">
+						<a href="javascript:void(0);" class="ui-btn" id="changePwd">修改密码</a>
+						<a href="#myPage" data-role="button" data-transition="slide">返回</a>
+					</div>
+				</div>
+			</div>
+			
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<p>Zero Supermarket @William</p>
+			</div>
+		</div>
+		
+		<!--分类导航页面-->
+		<div data-role="page" id="kindPage">
+			<div data-role="header" data-position="fixed">
+				<a href="#mainPage" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">主页</a>
+				<h1>Zero网上超市</h1>
+				<a href="#searchPage" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">搜索</a>	
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<!--<p>分类菜单</p>-->
+				<h2>※分类菜单</h2>
+				<br /><hr />
+				<div id="kindContent">
+					<!-- 动态加载商品类别清单 -->
+					<!--<div class="kindField">
+						<div class="kindOne">
+							<span class="kindOneItem">●休闲零食</span>
+						</div>
+						<div class="kindTwo">
+							<a href="" class="kindTwoItem ui-btn">糕点饼干</a>
+							<a href="" class="kindTwoItem ui-btn">坚果</a>
+						</div>
+					</div>
+					<div class="kindField">
+						<div class="kindOne">
+							<span class="kindOneItem">●休闲零食</span>
+						</div>
+						<div class="kindTwo">
+							<a href="" class="kindTwoItem ui-btn">糕点饼干</a>
+							<a href="" class="kindTwoItem ui-btn">坚果</a>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		
+			<div data-role="footer" style="text-align: center"  data-position="fixed">
+				<div data-role="navbar">
+				<ul>
+					<li><a href="#myPage" class="ui-btn ui-icon-user ui-btn-icon-top">我的</a></li>
+					<li><a href="javascript:void(0);" class="ui-btn ui-icon-shop ui-btn-icon-top" id="kindToCart">购物车</a></li>
+					<li><a href="#kindPage" class="ui-btn ui-icon-grid ui-btn-icon-top ui-btn-active">分类查看</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
